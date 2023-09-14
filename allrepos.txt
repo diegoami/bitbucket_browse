@@ -1,44 +1,59 @@
-airflow-openshift                                           da-dev-ops
-bankdomain_PY                                               da-apps
-bitnami-docker-airflow-scheduler                            da-dev-ops
-census_heroku                                               da-udacity
-charts                                                      da-dev-ops
-DA_airflow                                                  da-gen-tools
-DA_angular7_tutorial                                        da-test-libraries
-DA_boundingboxes                                            da-test-libraries
-DA_churn                                                    da-udacity
-DA_dataengineer_capstone                                    da-udacity
-DA_deds_challenge                                           da-recruitment
-DA_Hellofresh                                               da-recruitment
-DA_hoeefner                                                 da-recruitment
-DA_learn_angular_ui_material                                da-test-libraries
-DA_learn_latex                                              da-personal
-DA_librosa_tutorial                                         da-learning-languages
-DA_praw_queue                                               da-apps
-DA_queueapp                                                 da-recruitment
-DA_redis_nodejs_Scoreboard                                  da-apps
-DA_scala_idea_projects                                      da-learning-languages
-DA_split_youtube_frames_s3                                  da-apps
-DA_tensorflow_for_letsplay                                  da-apps
-DA_Udacity_Sentiment_Analysis                               da-udacity
-DA_yelp_analisis                                            da-recruitment
-devfile-sample-python-basic                                 da-dev-ops
-diegoami/DA_scala_projects                                  da-learning-languages
-Diplado                                                     da-mods
-diplomacy-plus-for-warband                                  da-mods
-docker_kub_course                                           da-dev-ops
-example-code-python                                         da-learning-languages
-faqdomain_PY                                                da-apps
-genre_classification                                        da-udacity
-hello-kubernetes                                            da-dev-ops
-JS_FE_musicblogs                                            da-apps
-JS_musicblogs                                               da-apps
-musicblogs-scripts-PY                                       da-apps
-nd0821-c2-build-model-workflow-exercises                    da-udacity
-nd0821-c2-build-model-workflow-starter                      da-udacity
-nd0821-c3-deploying-a-scalable-pipeline-in-prod-demos       da-udacity
-nd0821-c3-starter-code                                      da-udacity
-newscollection                                              da-apps
-postgrest                                                   da-db
-Test-for-Klarna                                             da-recruitment
-udacity_mlops_last_project                                  da-udacity
+airflow-openshift                                                     Openshift                     da-dev-ops
+balloons-JS                                                           Baloncelli                    da-apps
+bankdomain_PY                                                         FAQ_PORTAL                    da-apps
+bitnami-docker-airflow-scheduler                                      Docker                        da-dev-ops
+census_heroku                                                         MLOPS                         da-udacity
+charts                                                                Helm                          da-dev-ops
+DA_airflow                                                            Airflow                       da-gen-tools
+DA_angular7_tutorial                                                  Angular                       da-test-libraries
+DA_api_dataset                                                        DATA_ENGINEER                 da-udacity
+DA_boundingboxes                                                      opencv                        da-test-libraries
+DA_chessella_DB                                                       Chessella                     da-apps
+DA_churn                                                              MLOPS                         da-udacity
+DA_dataengineer_capstone                                              DATA_ENGINEER                 da-udacity
+DA_deds_challenge                                                     Wattx                         da-recruitment
+DA_FAQS                                                               FAQ_PORTAL                    da-apps
+DA_gapi_chessella                                                     Chessella                     da-apps
+DA_gedovinello                                                        Geomapquiz                    da-apps
+DA_Hellofresh                                                         Hellofresh                    da-recruitment
+DA_hoeefner                                                           Höffner                       da-recruitment
+DA_learn_angular_ui_material                                          Angular                       da-test-libraries
+DA_learn_latex                                                        CV                            da-personal
+DA_librosa_tutorial                                                   Python                        da-learning-languages
+DA_ML_Capstone                                                        MLE                           da-udacity
+DA_nanoeng_degree                                                     DATA_ENGINEER                 da-udacity
+DA_praw_queue                                                         Techcontroversy               da-apps
+DA_queueapp                                                           Other                         da-recruitment
+DA_redis_nodejs_Scoreboard                                            Baloncelli                    da-apps
+DA_scala_idea_projects                                                Scala                         da-learning-languages
+DA_split_youtube_frames_s3                                            Frame_Categorizer             da-apps
+DA_tensorflow_for_letsplay                                            Frame_Categorizer             da-apps
+DA_Udacity_Sentiment_Analysis                                         MLOPS                         da-udacity
+DA_yelp_analisis                                                      NewYorker                     da-recruitment
+devfile-sample-python-basic                                           Heroku                        da-dev-ops
+diegoami/DA_scala_projects                                            Scala                         da-learning-languages
+Diplado                                                               MountBlade                    da-mods
+diplomacy-plus-for-warband                                            MountBlade                    da-mods
+docker_kub_course                                                     Kubernetes                    da-dev-ops
+example-code-python                                                   Python                        da-learning-languages
+faqdomain_PY                                                          FAQ_PORTAL                    da-apps
+genre_classification                                                  MLOPS                         da-udacity
+geoclick-delphi                                                       GEOCLICK                      da-apps
+geoclick-JS                                                           GEOCLICK                      da-apps
+geomapquiz                                                            Geomapquiz                    da-apps
+hello-kubernetes                                                      Kubernetes                    da-dev-ops
+insurancedomain                                                       FAQ_PORTAL                    da-apps
+JS_FE_musicblogs                                                      Musicblogs                    da-apps
+JS_musicblogs                                                         Musicblogs                    da-apps
+manage_chessella-PY                                                   Chessella                     da-apps
+ML_SageMaker_Studies                                                  MLE                           da-udacity
+musicblogs-scripts-PY                                                 Musicblogs                    da-apps
+nd0821-c2-build-model-workflow-exercises                              MLOPS                         da-udacity
+nd0821-c2-build-model-workflow-starter                                MLOPS                         da-udacity
+nd0821-c3-deploying-a-scalable-pipeline-in-prod-demos                 MLOPS                         da-udacity
+nd0821-c3-starter-code                                                MLOPS                         da-udacity
+newscollection                                                        Techcontroversy               da-apps
+postgrest                                                             POSTGRES                      da-db
+sagemaker-deployment                                                  MLE                           da-udacity
+Test-for-Klarna                                                       Klarna                        da-recruitment
+udacity_mlops_last_project                                            MLOPS                         da-udacity
