@@ -6,61 +6,46 @@ load_dotenv()
 
 username = os.environ.get('BITBUCKET_USERNAME')
 app_password = os.environ.get('BITBUCKET_PASSWORD')
+auth = (username, app_password)
 
-# Fetch all workspaces the user has access to
-workspaces_response = requests.get(
-    "https://api.bitbucket.org/2.0/workspaces",
-    auth=(username, app_password)
-)
+def fetch_all_pages(url, auth):
+    items = []
+    while url:
+        response = requests.get(url, auth=auth)
+        if response.status_code == 200:
+            data = response.json()
+            items.extend(data['values'])
+            url = data.get('next', None)
+        else:
+            print(f"Failed to fetch data from {url}")
+            break
+    return items
 
-if workspaces_response.status_code == 200:
-    workspaces = workspaces_response.json()['values']
-    all_repositories = []
+workspaces = fetch_all_pages("https://api.bitbucket.org/2.0/workspaces", auth)
+all_repositories = []
 
-    # Loop through each workspace
-    for workspace in workspaces:
-        workspace_slug = workspace['slug']
+for workspace in workspaces:
+    workspace_slug = workspace['slug']
+    projects = fetch_all_pages(f"https://api.bitbucket.org/2.0/workspaces/{workspace_slug}/projects", auth)
 
-        # Fetch projects in each workspace
-        projects_response = requests.get(
-            f"https://api.bitbucket.org/2.0/workspaces/{workspace_slug}/projects",
-            auth=(username, app_password)
+    for project in projects:
+        project_name = project['name']
+        project_key = project['key']
+
+        repositories = fetch_all_pages(
+            f"https://api.bitbucket.org/2.0/repositories/{workspace_slug}?q=project.key=\"{project_key}\"", auth
         )
 
-        if projects_response.status_code == 200:
-            projects = projects_response.json()['values']
+        for repo in repositories:
+            all_repositories.append({
+                'workspace': workspace_slug,
+                'project': project_name,
+                'repository_name': repo['name']
+            })
 
-            # Loop through each project in the workspace
-            for project in projects:
-                project_name = project['name']
-                project_key = project['key']
+sorted_repositories = sorted(all_repositories, key=lambda x: x['repository_name'].lower())
 
-                # Fetch repositories in each project
-                repos_response = requests.get(
-                    f"https://api.bitbucket.org/2.0/repositories/{workspace_slug}?q=project.key=\"{project_key}\"",
-                    auth=(username, app_password)
-                )
+print(f"{'Repository':<50}{'Project':<30}{'Workspace':<30}")
 
-                if repos_response.status_code == 200:
-                    repositories = repos_response.json()['values']
-
-                    # Loop through each repository in the project
-                    for repo in repositories:
-                        all_repositories.append({
-                            'workspace': workspace_slug,
-                            'project': project_name,
-                            'repository_name': repo['name']
-                        })
-
-    # Sort all repositories by their name, case-insensitively
-    sorted_repositories = sorted(all_repositories, key=lambda x: x['repository_name'].lower())
-
-    # Print the header for the table
-    print(f"{'Repository':<50}{'Project':<30}{'Workspace':<30}")
-
-    # Print the sorted list of repositories along with their projects and workspaces
-    for repo in sorted_repositories:
-        print(f"{repo['repository_name']:<70}{repo['project']:<30}{repo['workspace']:<30}")
-
-else:
-    print("Failed to fetch workspaces.")
+for repo in sorted_repositories:
+    print(f"{repo['repository_name']:<50}{repo['project']:<30}{repo['workspace']:<30}")
