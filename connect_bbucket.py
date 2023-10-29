@@ -23,6 +23,7 @@ def fetch_all_pages(url, auth):
 
 workspaces = fetch_all_pages("https://api.bitbucket.org/2.0/workspaces", auth)
 all_repositories = []
+all_repo_list = []
 
 for workspace in workspaces:
     workspace_slug = workspace['slug']
@@ -42,10 +43,17 @@ for workspace in workspaces:
                 'project': project_name,
                 'repository_name': repo['name']
             })
+            all_repo_list.append(repo['name'])
 
 sorted_repositories = sorted(all_repositories, key=lambda x: x['repository_name'].lower())
+sorted_repo_list = sorted(all_repo_list, key=str.casefold)
 
+print("==============================================================================")
 print(f"{'Repository':<50}{'Project':<30}{'Workspace':<30}")
 
 for repo in sorted_repositories:
     print(f"{repo['repository_name']:<50}{repo['project']:<30}{repo['workspace']:<30}")
+print("==============================================================================")
+
+for repo in sorted_repo_list:
+    print(repo)
